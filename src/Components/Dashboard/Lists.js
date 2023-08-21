@@ -13,7 +13,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import dummyData from "../../assets/dummyData";
 import ClipLoader from "react-spinners/ClipLoader";
+import { useNavigate } from "react-router-dom";
 const Lists = () => {
+  const navigate = useNavigate();
   const [books, setBooks] = useState("");
   const authToken = localStorage.getItem("authToken");
   const config = {
@@ -32,6 +34,9 @@ const Lists = () => {
         console.log(error.response);
       });
   }, []);
+  const handleBorrowClick = () => {
+    navigate("/dashboard/borrowBook");
+  };
   return (
     <>
       <div className="flex flex-row">
@@ -39,12 +44,19 @@ const Lists = () => {
           <div className="flex flex-row items-center">
             <p className="font-bold text-2xl pt-10 pb-5">Recently Borrowed</p>
             <Button
+              onClick={handleBorrowClick}
               variant="contained"
-              style={{ paddingBottom: 10, marginTop: 20, marginLeft: 320 }}
+              style={{
+                paddingBottom: 10,
+                marginTop: 20,
+                marginLeft: 320,
+                backgroundColor: "#F65867",
+              }}
             >
               Borrow Book
             </Button>
           </div>
+
           <TableContainer
             component={Paper}
             className="w-34 h-96"

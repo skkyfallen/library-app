@@ -31,8 +31,8 @@ const Login = () => {
       });
   };
   return (
-    <div className="h-screen bg-formBlack flex items-center justify-center font-bold ">
-      <form className="bg-formGrey shadow-lg rounded-2xl h-3/6 w-7/12  flex flex-row justify-between">
+    <div className="h-screen bg-libraryOrange flex items-center justify-center font-bold ">
+      <form className="bg-libraryOrange shadow-lg rounded-2xl h-3/6 w-7/12  flex flex-row justify-between">
         <div>
           <h1 className="text-white font-regular text-3xl flex p-10">
             Drop Back In
@@ -41,7 +41,9 @@ const Login = () => {
           <div className="border-2 border-white ml-5 mr-2"></div>
         </div>
         <div className="bg-white w-7/12 rounded-xl">
-          <h1 className="text-black font-bold text-3xl p-10">Sign Up</h1>
+          <h1 className="text-black font-bold text-3xl text-black p-10">
+            Login
+          </h1>
 
           <p className="p-5">Email-address</p>
           <input
@@ -68,7 +70,7 @@ const Login = () => {
               <BiSolidRightArrowCircle
                 size={40}
                 className="relative left-20 top-3"
-                color={"#fffff"}
+                color={"#F65867"}
               />
             </button>
           )}
