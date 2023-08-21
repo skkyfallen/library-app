@@ -4,6 +4,8 @@ import "./styles.css";
 import { BiSolidRightArrowCircle } from "react-icons/bi";
 import ClipLoader from "react-spinners/ClipLoader";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Login = () => {
   const navigate = useNavigate();
   const [email, setemail] = React.useState("");
@@ -28,11 +30,14 @@ const Login = () => {
       .catch((error) => {
         console.log(error.response);
         setloading(false);
+        toast.error("Login Failed, check your details", {
+          position: toast.POSITION.TOP_CENTER,
+        });
       });
   };
   return (
     <div className="h-screen bg-libraryOrange flex items-center justify-center font-bold ">
-      <form className="bg-libraryOrange shadow-lg rounded-2xl h-3/6 w-7/12  flex flex-row justify-between">
+      <form className="bg-libraryOrange shadow-lg rounded-2xl  w-7/12  flex flex-row justify-between h-96">
         <div>
           <h1 className="text-white font-regular text-3xl flex p-10">
             Drop Back In
@@ -41,9 +46,7 @@ const Login = () => {
           <div className="border-2 border-white ml-5 mr-2"></div>
         </div>
         <div className="bg-white w-7/12 rounded-xl">
-          <h1 className="text-black font-bold text-3xl text-black p-10">
-            Login
-          </h1>
+          <h1 className="text-black font-bold text-3xl  p-10">Login</h1>
 
           <p className="p-5">Email-address</p>
           <input
@@ -69,13 +72,14 @@ const Login = () => {
             <button onClick={handleContinue}>
               <BiSolidRightArrowCircle
                 size={40}
-                className="relative left-20 top-3"
+                className="relative left-10 top-3"
                 color={"#F65867"}
               />
             </button>
           )}
         </div>
       </form>
+      <ToastContainer />
     </div>
   );
 };

@@ -3,6 +3,8 @@ import "./styles.css";
 import { useNavigate } from "react-router-dom";
 import { BiSolidRightArrowCircle } from "react-icons/bi";
 import ClipLoader from "react-spinners/ClipLoader";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 const SignUp = () => {
   const [loading, setloading] = React.useState(false);
@@ -29,11 +31,14 @@ const SignUp = () => {
       .catch((error) => {
         console.log(error.response);
         setloading(false);
+        toast.error("Signup  Failed, check your details and try again", {
+          position: toast.POSITION.TOP_CENTER,
+        });
       });
   };
   return (
     <div className="h-screen bg-libraryOrange flex items-center justify-center font-bold ">
-      <form className="bg-libraryOrange shadow-lg rounded-2xl   w-7/12  flex flex-row justify-between">
+      <form className="bg-libraryOrange shadow-lg rounded-2xl   w-7/12  flex flex-row justify-between mb-10">
         <div>
           <h1 className="text-white font-regular text-3xl flex p-10">
             Get Started with
@@ -90,13 +95,14 @@ const SignUp = () => {
             <button onClick={handleContinue}>
               <BiSolidRightArrowCircle
                 size={40}
-                className="relative left-20 top-3"
+                className="relative left-10 top-3"
                 color={"#fffff"}
               />
             </button>
           )}
         </div>
       </form>
+      <ToastContainer />
     </div>
   );
 };
