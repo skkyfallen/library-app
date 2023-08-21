@@ -1,23 +1,22 @@
 import React from "react";
 import "./styles.css";
+import { useNavigate } from "react-router-dom";
 import { BiSolidRightArrowCircle } from "react-icons/bi";
 import ClipLoader from "react-spinners/ClipLoader";
 import axios from "axios";
 const SignUp = () => {
   const [loading, setloading] = React.useState(false);
-  const [firstname, setfirstname] = React.useState("");
-  const [lastname, setlastname] = React.useState("");
+  const [libraryName, setLibraryName] = React.useState("");
   const [email, setemail] = React.useState("");
   const [phone, setphone] = React.useState("");
   const [password, setpassword] = React.useState("");
-
+  const navigate = useNavigate();
   const handleContinue = (event) => {
     event.preventDefault();
     setloading(true);
     axios
       .post("https://wild-gray-pigeon-shoe.cyclic.cloud/user/signup", {
-        firstname: firstname,
-        lastname: lastname,
+        libraryName: libraryName,
         email: email,
         phoneNumber: phone,
         password: password,
@@ -25,6 +24,7 @@ const SignUp = () => {
       .then((response) => {
         console.log(response.data);
         setloading(false);
+        navigate("/login");
       })
       .catch((error) => {
         console.log(error.response);
@@ -50,20 +50,12 @@ const SignUp = () => {
         </div>
         <div className="bg-white w-7/12 rounded-xl">
           <h1 className="text-black font-bold text-3xl p-10">Sign Up</h1>
-          <p className="p-5">First name</p>
+          <p className="p-5">Library Name</p>
           <input
             type="text"
-            value={firstname}
-            onChange={(event) => setfirstname(event.target.value)}
+            value={libraryName}
+            onChange={(event) => setLibraryName(event.target.value)}
             placeholder="Enter your first name"
-            className="p-5 ml-5 w-8/12  h-14 rounded-lg bg-slate-100"
-          />
-          <p className="p-5">Last Name</p>
-          <input
-            type="text"
-            value={lastname}
-            onChange={(event) => setlastname(event.target.value)}
-            placeholder="Enter your last name"
             className="p-5 ml-5 w-8/12  h-14 rounded-lg bg-slate-100"
           />
           <p className="p-5">Email-address</p>
