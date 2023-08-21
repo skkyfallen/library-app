@@ -33,7 +33,7 @@ const SignUp = () => {
   };
   return (
     <div className="h-screen bg-libraryOrange flex items-center justify-center font-bold ">
-      <form className="bg-libraryOrange shadow-lg rounded-2xl h-5/6 w-7/12  flex flex-row justify-between">
+      <form className="bg-libraryOrange shadow-lg rounded-2xl   w-7/12  flex flex-row justify-between">
         <div>
           <h1 className="text-white font-regular text-3xl flex p-10">
             Get Started with
