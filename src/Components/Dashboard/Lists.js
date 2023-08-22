@@ -109,7 +109,7 @@ const Lists = () => {
         <div>
           <div>
             <p className="font-bold text-3xl pt-10">Top Choices</p>
-            <div>
+           {/*  <div>
               {books ? (
                 <div className="grid grid-cols-2 pl-10 pt-5">
                   {books.slice(0, 4).map((book) => (
@@ -134,7 +134,7 @@ const Lists = () => {
                   <ClipLoader className="relative left-20 top-3" />
                 </div>
               )}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

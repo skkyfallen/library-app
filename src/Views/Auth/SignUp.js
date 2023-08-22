@@ -50,15 +50,15 @@ const SignUp = () => {
   };
   return (
     <div className="h-screen bg-libraryOrange flex items-center justify-center font-bold ">
-      <form className="bg-libraryOrange shadow-lg rounded-2xl   w-7/12  flex flex-row justify-between sm:h-4/6">
+      <form className="bg-libraryOrange shadow-lg rounded-2xl   w-7/12  flex flex-row justify-between sm:h-5/6 h-full">
         <div>
-          <h1 className="text-white font-regular text-3xl flex p-10 sm:p-2 sm:texl-xl">
+          <h1 className="text-white font-regular text-2xl flex lg:p-2 p-10 sm:p-2 sm:texl-xl">
             Get Started with
           </h1>
-          <h1 className="text-white text-4xl p-10 sm:p-3 sm:text-2xl">
+          <h1 className="text-white text-4xl  sm:text-2xl">
             Library - Manager
           </h1>
-          <p className="text-white text-xl px-10 sm:px-3 sm:py-20 ">
+          <p className="text-white text-xl px-10 sm:px-3 lg:py-10 sm:py-20 ">
             Your all in one Library Assistant
           </p>
           <p className="text-white xl:px-10 xl:text-2xl xl:py-20 sm:px-3 sm-text-xl">
@@ -85,7 +85,7 @@ const SignUp = () => {
             value={libraryName}
             onChange={(event) => setLibraryName(event.target.value)}
             placeholder="Enter the library name"
-            className="p-5 ml-5 w-8/12 sm:h-10 xl:h-14  rounded-lg bg-slate-100"
+            className="p-5 ml-5 w-8/12 sm:h-10 rounded-lg bg-slate-100"
           />
           <p className="xl:p-5 sm:p-2">Email-address</p>
           <input
@@ -93,7 +93,7 @@ const SignUp = () => {
             value={email}
             onChange={(event) => setemail(event.target.value)}
             placeholder="example@email.com"
-            className="xl:p-5 sm:p-2 ml-5 w-8/12 sm:h-10 xl:h-14 rounded-lg bg-slate-100"
+            className="xl:p-5 sm:p-2 ml-5 w-8/12 sm:h-10 lg:h-10 xl:h-14 rounded-lg bg-slate-100"
           />
           <p className="xl:p-5 sm:p-2">Phone-Number</p>
           <input
@@ -101,7 +101,7 @@ const SignUp = () => {
             value={phone}
             onChange={(event) => setphone(event.target.value)}
             placeholder="Enter your phone number"
-            className="xl:p-5 sm:p-2  ml-5 w-8/12 sm:h-10  xl:h-14 rounded-lg bg-slate-100"
+            className="xl:p-5 sm:p-2  ml-5 w-8/12 sm:h-10 lg:h-10  xl:h-14 rounded-lg bg-slate-100"
           />
           <p className="xl:p-5 sm:p-2">Password</p>
           <input
@@ -109,13 +109,13 @@ const SignUp = () => {
             value={password}
             onChange={(event) => setpassword(event.target.value)}
             placeholder="Enter your password"
-            className="xl:p-5 sm:p-2 ml-5 w-8/12 sm:h-10 xl:h-14 rounded-lg bg-slate-100"
+            className="xl:p-5 sm:p-2 ml-5 w-8/12 lg:h-10 sm:h-10 xl:h-14 rounded-lg bg-slate-100"
           />
           <input
             type="file"
             accept="image/*"
             onChange={(event) => setImage(event.target.files[0])}
-            className="xl:px-10 sm:px-0 xl:pb-10 sm:pb-0 sm:pt-2"
+            className="xl:px-10 sm:px-0 xl:pb-10 lg:h-10 sm:pb-0 sm:pt-2"
           />
           {loading === true ? (
             <button>
