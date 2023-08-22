@@ -108,8 +108,7 @@ const Lists = () => {
         </div>
         <div>
           <div>
-            <p className="font-bold text-3xl pt-10">Top Choices</p>
-           {/*  <div>
+            {/*  <div>
               {books ? (
                 <div className="grid grid-cols-2 pl-10 pt-5">
                   {books.slice(0, 4).map((book) => (
