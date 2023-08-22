@@ -3,7 +3,7 @@ import axios from "axios";
 import "./styles.css";
 import { BiSolidRightArrowCircle } from "react-icons/bi";
 import ClipLoader from "react-spinners/ClipLoader";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const Login = () => {
@@ -43,6 +43,11 @@ const Login = () => {
             Drop Back In
           </h1>
           <h1 className="text-white text-4xl p-10 ">Library - Manager</h1>
+          <p>
+            <NavLink to="/signup" className="p-10 hover:text-white font-bold">
+              Dont have an Account?
+            </NavLink>
+          </p>
           <div className="border-2 border-white ml-5 mr-2"></div>
         </div>
         <div className="bg-white w-7/12 rounded-xl">
@@ -66,7 +71,7 @@ const Login = () => {
           />
           {loading === true ? (
             <button>
-              <ClipLoader className="relative left-20 top-3" />
+              <ClipLoader className="relative left-20 sm:absolute sm:left-0 sm:top-0 top-3" />
             </button>
           ) : (
             <button onClick={handleContinue}>
