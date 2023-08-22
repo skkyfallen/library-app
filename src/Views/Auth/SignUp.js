@@ -55,7 +55,9 @@ const SignUp = () => {
           <h1 className="text-white font-regular text-3xl flex p-10 sm:p-2 sm:texl-xl">
             Get Started with
           </h1>
-          <h1 className="text-white text-4xl p-10 sm:p-3 sm:text-2xl">Library - Manager</h1>
+          <h1 className="text-white text-4xl p-10 sm:p-3 sm:text-2xl">
+            Library - Manager
+          </h1>
           <p className="text-white text-xl px-10 sm:px-3 sm:py-20 ">
             Your all in one Library Assistant
           </p>
@@ -74,14 +76,16 @@ const SignUp = () => {
           <div className="border-2 border-white ml-5 mr-2"></div>
         </div>
         <div className="bg-white w-7/12 rounded-xl">
-          <h1 className="text-black font-bold xl:text-3xl pt-10 pl-10 sm:pt-2 sm:pl-2 sm:text-2xl">Sign Up</h1>
+          <h1 className="text-black font-bold xl:text-3xl pt-10 pl-10 sm:pt-2 sm:pl-2 sm:text-2xl">
+            Sign Up
+          </h1>
           <p className="xl:p-5 sm:p-2 ">Library Name</p>
           <input
             type="text"
             value={libraryName}
             onChange={(event) => setLibraryName(event.target.value)}
-            placeholder="Enter your first name"
-            className="p-5 ml-5 w-8/12 sm:h-10 xl:h-14  rounded-lg bg-slate-100" 
+            placeholder="Enter the library name"
+            className="p-5 ml-5 w-8/12 sm:h-10 xl:h-14  rounded-lg bg-slate-100"
           />
           <p className="xl:p-5 sm:p-2">Email-address</p>
           <input

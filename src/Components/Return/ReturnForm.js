@@ -33,7 +33,7 @@ const ReturnForm = () => {
       .then((response) => {
         console.log(response.data);
         setLoading(false);
-        toast.success("Successful!");
+        toast.success("Book returned!");
       })
       .catch((error) => {
         console.log(error.response);

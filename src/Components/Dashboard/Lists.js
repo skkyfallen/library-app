@@ -111,13 +111,20 @@ const Lists = () => {
             <p className="font-bold text-3xl pt-10">Top Choices</p>
             <div>
               {books ? (
-                <div className="flex flex-col pl-10 pt-5">
-                  {books.map((book) => (
-                    <div className="flex flex-col mb-10">
-                      <p className="font-bold">{book.title}</p>
-                      <p className="font-regular text-slate-400">
-                        {book.author}
-                      </p>
+                <div className="grid grid-cols-2 pl-10 pt-5">
+                  {books.slice(0, 4).map((book) => (
+                    <div className="mb-10 grid grid-cols-2">
+                      <div className="">
+                        <img
+                          src={book.image}
+                          alt="Books"
+                          className="w-9/12 h-44 sm:h-44"
+                        />
+                        <p className="font-bold">{book.title}</p>
+                        <p className="font-regular text-slate-400">
+                          {book.author}
+                        </p>
+                      </div>
                     </div>
                   ))}
                 </div>

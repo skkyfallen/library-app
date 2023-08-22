@@ -33,6 +33,8 @@ const BorrowForm = () => {
       )
       .then((response) => {
         console.log(response.data);
+        toast.success("Book Borrowed Successfully");
+        setLoading(false);
       })
       .catch((error) => {
         console.log(error.response);
