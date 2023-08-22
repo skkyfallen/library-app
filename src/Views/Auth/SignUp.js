@@ -31,7 +31,7 @@ const SignUp = () => {
       .catch((error) => {
         console.log(error.response);
         setloading(false);
-        toast.error("Signup  Failed, check your details and try again", {
+        toast.error(error.response.data.message, {
           position: toast.POSITION.TOP_CENTER,
         });
       });

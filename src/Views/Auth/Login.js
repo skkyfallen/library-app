@@ -30,7 +30,7 @@ const Login = () => {
       .catch((error) => {
         console.log(error.response);
         setloading(false);
-        toast.error("Login Failed, check your details", {
+        toast.error(error.response.data.message, {
           position: toast.POSITION.TOP_CENTER,
         });
       });
