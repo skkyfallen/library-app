@@ -1,6 +1,30 @@
 import React from "react";
 import ReturnForm from "./ReturnForm";
 const Return = () => {
+  const [currentDateTime, setCurrentDateTime] = React.useState(new Date());
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentDateTime(new Date());
+    }, 1000); // Update every second
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
+  const options = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    second: "numeric",
+    timeZoneName: "short",
+  };
+
+  const formattedDateTime = currentDateTime.toLocaleString(undefined, options);
   return (
     <div className="flex mt-7 ">
       <div className="bg-gray w-full ml-5 mr-5 h-screen rounded-xl p-5">
@@ -11,7 +35,7 @@ const Return = () => {
           </div>
           <div>
             <p className="font-regular font-bold">
-              Jan 12 2023 | Thursday , 11:00am
+             {formattedDateTime}
             </p>
             <p className="font-bold text-4xl text-libraryOrange pt-4">
               Finally they returned the book
