@@ -8,6 +8,8 @@ import axios from "axios";
 const ReturnForm = () => {
   const [author, setAuthor] = useState("");
   const [title, setTitle] = useState("");
+  const [email, setEmail] = useState("");
+  const [bookId, setBookId] = useState("");
   const [numberOfCopies, setNumberOfCopies] = useState("");
   const authToken = localStorage.getItem("authToken");
   const [loading, setLoading] = useState(false);
@@ -21,18 +23,17 @@ const ReturnForm = () => {
     setLoading(true);
     axios
       .post(
-        "https://wild-gray-pigeon-shoe.cyclic.cloud/book/create",
+        "https://wild-gray-pigeon-shoe.cyclic.cloud/book/return",
         {
-          author: author,
-          title: title,
-          availableCopies: numberOfCopies,
+          email: email,
+          id: bookId,
         },
         config
       )
       .then((response) => {
         console.log(response.data);
         setLoading(false);
-        toast.success(response.data.message);
+        toast.success("Successful!");
       })
       .catch((error) => {
         console.log(error.response);
@@ -45,26 +46,18 @@ const ReturnForm = () => {
       <form className="bg-white mt-5 flex flex-col justify-around h-96 font-regular">
         <TextField
           variant="filled"
-          label="Author"
+          label="Email"
           style={{ fontFamily: "bold", width: 350 }}
-          value={author}
-          onChange={(event) => setAuthor(event.target.value)}
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
         />
         <TextField
           variant="filled"
-          label="Title"
+          label="Book Id"
           style={{ fontFamily: "bold", width: 350 }}
           type="email"
-          value={title}
-          onChange={(event) => setTitle(event.target.value)}
-        />
-        <TextField
-          variant="filled"
-          label="Available Copies"
-          style={{ fontFamily: "bold", width: 350 }}
-          type="text"
-          value={numberOfCopies}
-          onChange={(event) => setNumberOfCopies(event.target.value)}
+          value={bookId}
+          onChange={(event) => setBookId(event.target.value)}
         />
 
         {loading === true ? (

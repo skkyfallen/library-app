@@ -12,17 +12,28 @@ const SignUp = () => {
   const [email, setemail] = React.useState("");
   const [phone, setphone] = React.useState("");
   const [password, setpassword] = React.useState("");
+  const [image, setImage] = React.useState(null);
   const navigate = useNavigate();
+  const config = {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  };
   const handleContinue = (event) => {
     event.preventDefault();
     setloading(true);
+    const formData = new FormData();
+    formData.append("name", libraryName);
+    formData.append("email", email);
+    formData.append("number", phone);
+    formData.append("password", password);
+    formData.append("image", image);
     axios
-      .post("https://wild-gray-pigeon-shoe.cyclic.cloud/user/signup", {
-        libraryName: libraryName,
-        email: email,
-        phoneNumber: phone,
-        password: password,
-      })
+      .post(
+        "https://wild-gray-pigeon-shoe.cyclic.cloud/user/signup",
+        formData,
+        config
+      )
       .then((response) => {
         console.log(response.data);
         setloading(false);
@@ -86,6 +97,11 @@ const SignUp = () => {
             onChange={(event) => setpassword(event.target.value)}
             placeholder="Enter your password"
             className="p-5 ml-5 w-8/12  h-14 rounded-lg bg-slate-100"
+          />
+          <input
+            type="file"
+            accept="image/*"
+            onChange={(event) => setImage(event.target.files[0])}
           />
           {loading === true ? (
             <button>
